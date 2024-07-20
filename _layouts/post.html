@@ -3,14 +3,25 @@ layout: default
 ---
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
 <div class="post-container">
+  {%- if page.categories.size > 0 -%}
+  <div style="display: block">
+    <ul class="post-categories">
+      {%- for tag in page.categories -%}
+      <li><a onclick="loadCategoryPosts('{{ tag }}')">{{ tag }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+  <br/>
+  {%- endif -%}
   <a class="post-link" href="{{ page.url | relative_url }}">
     <h2 class="post-title">{{ page.title | escape }}</h2>
   </a>
+
   <div class="post-meta">
     <div class="post-date"><i class="icon-calendar"></i>{{ page.date | date: date_format }}</div>
-    {%- if page.categories.size > 0 -%}
-    <ul class="post-categories">
-      {%- for tag in page.categories -%}
+    {%- if page.tags.size > 0 -%}
+    <ul class="post-tags">
+      {%- for tag in page.tags -%}
       <li>{{ tag }}</li>
       {%- endfor -%}
     </ul>
@@ -28,4 +39,11 @@ layout: default
         async>
     </script>
   </div>
+
+  <script>
+    function loadCategoryPosts(category) {
+      // 선택한 카테고리를 파라미터로 전달하여 페이지를 로드
+      window.location.href = '/category/' + category; // 예시 URL 구조
+    }
+  </script>  
 </div>

@@ -45,6 +45,19 @@
 
 	.post-categories {
 		li {
+			color: #bbbbbb;
+		}
+
+		li ::after {
+			color: #bbbbbb; /* 화살표 색상 */
+		}
+		a {
+			color: #bbbbbb; 
+		}
+	}
+
+	.post-tags {
+		li {
 			background-color: #333;
 			color: #fff;
 		}
@@ -106,6 +119,17 @@
 			color: white;
 		}
 	}
+
+	.category_cnt{
+		background-color: #333333; /* 배경색 */
+	}
+
+	.accordion {
+		a {
+			color: white;
+		}
+	}
+	  
 }
 .dark table {
 	th, td {
@@ -115,3 +139,4 @@
 		background-color: #0d0d0d;
 	}
 }
+

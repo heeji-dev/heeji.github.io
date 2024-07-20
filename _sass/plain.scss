@@ -6,7 +6,8 @@ $linkColor: #0a59b0;
 $mobileW: 768px;
 $smallMobileW: 480px;
 $bigScreenW: 1600px;
-$leftWidth: 220px;
+$leftWidth: 350px;
+$rightWidth: 350px;
 
 *,
 *:before,
@@ -45,29 +46,30 @@ h2 {
   }
 }
 main {
-  margin: 0 90px;
+  margin: 0 30px;
   display: flex;
   height: 100%;
 
   @media screen and (min-width: $bigScreenW) {
-    margin: 0 auto;
-    max-width: 1440px;
+    margin: 0 2rem;
+    margin-right: $rightWidth;
+
   }
   @media screen and (max-width: 1280px) {
-    margin: 0 75px;
+    margin: 0 1rem;
   }
   @media screen and (max-width: 1024px) {
-    margin: 0 35px;
+    margin: 0 1rem;
   }
 
   @media screen and (max-width: $mobileW) {
-    margin: 0 10px;
+    margin: 0 1rem;
     flex-direction: column;
   }
   @media screen and (max-width: $smallMobileW) {
-    margin: 0;
+    margin: 0 1rem;
   }
-
+  margin: 0 2rem;
   .content {
     @media screen and (min-width: $mobileW + 1) {
       max-width: calc(100% - #{$leftWidth});
@@ -164,7 +166,7 @@ main {
 
     a {
       display: block;
-      font-family: 'Merriweather';
+      font-family: "Noto Sans KR", sans-serif;
       text-align: center;
       padding: 1rem 0;
       text-decoration: none;
@@ -187,11 +189,41 @@ main {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-right: 5px;
+  padding-right: 5px;
+  @media screen and (max-width: $mobileW) {
+    display: none;
+  }
+  li {
+    font-size: 14px;
+    float: left;
+    color: #999;
+    padding: 5px 1px;
+    border-radius: 2px;
+    margin-top: 5px;
+    @media screen and (max-width: $mobileW) {
+      margin-top: 5px;
+    }
+  }
+
+  li::after {
+    margin-left: 2px;
+    margin-right: 1px;
+    content: " \\";
+    color: #999; /* 화살표 색상 */
+  }
+}
+
+
+.post-tags {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   li {
     font-size: 14px;
     float: left;
     background-color: #e3e3e3;
-    padding: 5px 20px;
+    padding: 5px 10px;
     border-radius: 2px;
     @media screen and (max-width: $mobileW) {
       margin-top: 5px;
@@ -199,6 +231,7 @@ main {
     margin-right: 10px;
   }
 }
+
 .post-date {
   margin-right: 10px;
   color: #555;
@@ -225,6 +258,7 @@ main {
   line-height: 1.2em;
   font-size: 28px;
   margin-bottom: 10px;
+  margin-left: 5px;
 }
 .posts,
 .post-container {
@@ -245,7 +279,7 @@ main {
 .post {
   transform : rotate(0.04deg); 
   font-family: "Noto Sans KR", sans-serif;
-  font-weight: 330;
+  font-weight: 350;
   color: #222;
   line-height: 1.9em;
   p {
@@ -335,3 +369,114 @@ footer {
     border-top: 1px solid #eee;
   }
 }
+
+.navigation {
+  width: 80%;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+
+    li:last-child {
+      a {
+        border-bottom: 0;
+      }
+    }
+
+    a {
+      display: block;
+      font-family: "Noto Sans KR", sans-serif;
+      text-align: center;
+      padding: 1rem 0;
+      text-decoration: none;
+      border-bottom: 1px solid #ececec;
+
+      @media screen and (max-width: $mobileW) {
+        padding: 2rem 0;
+      }
+    }
+  }
+}
+
+.accordion {
+  width: 80%;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+
+    li:last-child {
+      a {
+        border-bottom: 0;
+      }
+    }
+
+    a {
+      font-family: "Noto Sans KR", sans-serif;
+      text-decoration: none;
+
+      @media screen and (max-width: $mobileW) {
+        padding: 2rem 0;
+      }
+    }
+  }
+}
+
+
+.accordion-header {
+  padding: 10px;
+  padding-right: 0px;
+}
+
+.accordion-top{
+  display: block;
+  font-family: "Noto Sans KR", sans-serif;
+  text-align: left;
+  padding: 1.5em 5px;
+  text-decoration: none;
+  border-bottom: 1px solid #ececec;
+
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none; /* 초기에는 숨겨짐 */
+  padding-left: 1rem;
+  margin-inline-start: 1rem; 
+  padding: 5px;
+}
+
+.subcategories {
+  list-style-type: none;
+}
+
+.subsubcategories {
+  list-style-type: none;
+}
+
+
+.arrow {
+  float: right;
+}
+
+.arrow.opened {
+  -webkit-user-select: none; /* Chrome, Safari, Edge */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* 일반적인 방법 */
+  transform: rotate(180deg);
+}
+
+.category_cnt{
+  margin-left: 1px;
+  font-size: 13px;
+  position: relative; /* 포지션 설정 */
+  display: inline-block; /* 인라인 블록 요소 */
+  padding: 0.1em 0.5em;
+  background-color: #ececec; /* 배경색 */
+  color: black; /* 글자색 */
+  border-radius: 50%; /* 동그라미 모양 */
+}
+
