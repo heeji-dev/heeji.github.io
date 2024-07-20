@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   {%- include head.html -%}
-  <link rel="icon" type="image/png" href="assets/img/heart.png">
+  
 </head>
 
 {%- if site.plainwhite.condensed_mobile contains page.layout -%}
@@ -43,7 +43,7 @@
         {% for category in site.data.categories %}
           <div class="accordion-item">
             <div class="accordion-header accordion-top">
-              <a onclick="loadCategoryPosts('{{ category.name }}')">
+              <a onclick="loadCategoryPosts('{{ category.name }}', '{{ site.baseurl }}')">
               {{ category.name }}
               </a>
               {% assign category_name = category.name %}  <!-- 확인할 카테고리 이름 -->
@@ -63,7 +63,7 @@
                   {% for subcategory in category.subcategories %}
                     <li>
                       <div class="accordion-header">
-                        <a onclick="loadCategoryPosts('{{ subcategory.name }}')">{{ subcategory.name }}</a>
+                        <a onclick="loadCategoryPosts('{{ subcategory.name }}', '{{ site.baseurl }}')">{{ subcategory.name }}</a>
                         {% assign category_name = subcategory.name %}  <!-- 확인할 카테고리 이름 -->
                         {% assign posts_in_category = site.posts | where_exp: 'post', 'post.categories contains category_name' %} 
                         {% if posts_in_category.size > 0 %}
@@ -81,7 +81,7 @@
                           {% for subsubcategory in subcategory.subcategories %}
                             <li>
                               <div class="accordion-header">
-                                <a onclick="loadCategoryPosts('{{ subsubcategory.name }}')">{{ subsubcategory.name }}</a>
+                                <a onclick="loadCategoryPosts('{{ subsubcategory.name }}','{{ site.baseurl }}')">{{ subsubcategory.name }}</a>
                                 {% assign category_name = subsubcategory.name %}  <!-- 확인할 카테고리 이름 -->
                                 {% assign posts_in_category = site.posts | where_exp: 'post', 'post.categories contains category_name' %} 
                                 {% if posts_in_category.size > 0 %}
@@ -280,9 +280,13 @@
       });
     });
 
-    function loadCategoryPosts(category) {
-      // 선택한 카테고리를 파라미터로 전달하여 페이지를 로드
-      window.location.href = '/category/' + category; // 예시 URL 구조
+    function loadCategoryPosts(category, baseurl) {
+      if(baseurl == ''){
+        window.location.href = '/category/' + category; 
+      }
+      else{
+        window.location.href = baseUrl+'/category/' + category; 
+      }
     }
   </script>  
   

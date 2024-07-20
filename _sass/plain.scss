@@ -207,8 +207,8 @@ main {
   }
 
   li::after {
-    margin-left: 2px;
-    margin-right: 1px;
+    margin-left: 0px;
+    margin-right: 3px;
     content: " \\";
     color: #999; /* 화살표 색상 */
   }

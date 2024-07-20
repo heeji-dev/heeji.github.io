@@ -7,7 +7,7 @@ layout: default
   <div style="display: block">
     <ul class="post-categories">
       {%- for tag in page.categories -%}
-      <li><a onclick="loadCategoryPosts('{{ tag }}')">{{ tag }}</a></li>
+      <li><a onclick="loadCategoryPosts('{{ tag }}', '{{ site.baseurl }}')">{{ tag }}</a></li>
       {%- endfor -%}
     </ul>
   </div>
@@ -39,11 +39,15 @@ layout: default
         async>
     </script>
   </div>
-
   <script>
-    function loadCategoryPosts(category) {
-      // 선택한 카테고리를 파라미터로 전달하여 페이지를 로드
-      window.location.href = '/category/' + category; // 예시 URL 구조
-    }
-  </script>  
+    function loadCategoryPosts(category, baseurl) {
+       if(baseurl == ''){
+         window.location.href = '/category/' + category; 
+       }
+       else{
+         window.location.href = baseUrl+'/category/' + category; 
+       }
+     }
+   </script>  
+ 
 </div>

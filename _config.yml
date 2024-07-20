@@ -4,13 +4,13 @@ email: h22j2@kakao.com
 description: > # this means to ignore newlines until "show_exerpts:"
   Beck-end Developer. 김희지 입니다.
 show_excerpts: true # set to true to show excerpts on the homepage
+baseurl: "/heeji.github.io"
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:
   sass_dir: _sass
-plainwhite:
-  baseurl: "/heeji.github.io"
+plainwhite: 
   name: HeeJi Kim
   tagline: Beck-end. Developer
   date_format: "%b %-d, %Y"
