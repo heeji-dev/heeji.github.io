@@ -282,10 +282,10 @@
 
     function loadCategoryPosts(category, baseurl) {
       if(baseurl == ''){
-        window.location.href = '/category/' + category; 
+        window.location.href = '/category/' + category.toLowerCase();; 
       }
       else{
-        window.location.href = baseurl+'/category/' + category; 
+        window.location.href = baseurl+'/category/' + category.toLowerCase();; 
       }
     }
   </script>  
