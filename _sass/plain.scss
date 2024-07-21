@@ -52,8 +52,6 @@ main {
 
   @media screen and (min-width: $bigScreenW) {
     margin: 0 2rem;
-    margin-right: $rightWidth;
-
   }
   @media screen and (max-width: 1280px) {
     margin: 0 1rem;
@@ -127,6 +125,12 @@ main {
         margin-bottom: 17px;
       }
     }
+  }
+  .side{
+    display: flex;
+    height: 100vh;
+    padding-bottom: 15vh;
+    min-width: $rightWidth;
   }
 }
 #title {
@@ -230,8 +234,19 @@ main {
     }
     margin-right: 10px;
   }
+  .selected {
+    /* 여기에 선택된 경우의 스타일을 정의합니다 */
+    background-color: #a7a7a7;
+  }
 }
-
+.hidden{
+  display: none;
+}
+.side-tags{
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
 .post-date {
   margin-right: 10px;
   color: #555;
@@ -418,7 +433,6 @@ footer {
       text-decoration: none;
 
       @media screen and (max-width: $mobileW) {
-        padding: 2rem 0;
       }
     }
   }

@@ -205,8 +205,6 @@
       </ul>
       {%- endif -%}
 
-      
-      
       {%- if site.plainwhite.navigation -%}
       <nav class="navigation about-footer {{condensed_class}}">
         <ul>
@@ -240,6 +238,25 @@
     <footer class="{{condensed_class}}">
       {{ footer }}
     </footer>
+    <section class="side">
+      {% assign tags = '' %}
+      {% for post in site.posts %}
+        {% assign post_tags = post.tags | join: ',' | append: ',' %}
+        {% assign tags = tags | append: post_tags %}
+      {% endfor %}
+
+      {% assign unique_tags = tags | split: ',' | uniq %}
+      
+      <div class="post-meta">
+        {%- if unique_tags.size > 0 -%}
+        <ul class="post-tags side-tags">
+          {% for utag in unique_tags %}
+          <li class="tag-item" data-tag="{{utag}}">{{ utag }}</li>
+          {% endfor %}
+        </ul>
+        {%- endif -%}
+      </div>
+    </sections>
   </main>
   {% if site.plainwhite.dark_mode %}
   <script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>

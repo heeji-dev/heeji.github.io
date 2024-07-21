@@ -4,7 +4,7 @@ email: h22j2@kakao.com
 description: > # this means to ignore newlines until "show_exerpts:"
   Beck-end Developer. 김희지 입니다.
 show_excerpts: true # set to true to show excerpts on the homepage
-baseurl: "/heeji.github.io"
+# baseurl: "/heeji.github.io"
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this

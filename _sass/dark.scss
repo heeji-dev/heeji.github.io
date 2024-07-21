@@ -61,6 +61,11 @@
 			background-color: #333;
 			color: #fff;
 		}
+		.selected {
+			/* 여기에 선택된 경우의 스타일을 정의합니다 */
+			background-color: rgb(201, 201, 201);
+			color: #222222;
+		}
 	}
 
 	a {
